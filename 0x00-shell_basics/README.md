@@ -3,3 +3,19 @@
 - **1-listit**: displays the contents list of your current directory
 - **2-bring_me_hom** : changes the working directory to user's home directory
 - **3-listfiles**: display the content of current directory in long format
+- **4-listmorefiles**: display the content of the current directory in a long format showing hidden files as well
+- **5-listfilesdigitsonly**: display the content of current directory with numeric uid and gid
+- **6-firstdirectory**: create a directory called my first directory in the tmp folder
+- **7-movethatfile**: move file`betty` from tmp to /tmp/myfirstdirectory
+- **8-firstdelete**: delete `betty` from myfirstdirectory
+- **9-firstdirdeletion**: delete myfirstdirectory
+- **10-back**: takes you back to the previous directory from current directory
+- **11-lists**: list all files in the current directory, parent directory, and in /boot folder
+- **12-file_type**: displays the file type of file `iamafile` in the tmp folder
+- **13-symbolic_link**: create a symbolic link __ls__ in the current directory pointing to bin/ls
+- **14-copy_html**: copy all html files from current directory to parent directory updating existing files
+- **100-lets_move**: move files beginning with uppercase letter to /tmp/u from current directory
+- **101-clean_emacs**: remove all files ending with the tilde ~ character
+- **102-tree**: create folders welcome/, welcome/to, and welcome/to/school with two spaces only in the command
+- **103-commas**: list the content of current directory to show with commas, directory to have "/" at the end, sorted alphabetically and digits if in file/folder name
+- **school.mgc**: a magic file that can be used with the command file to detect `School` data files. `School` data files always contain the string `SCHOOL` at offset 0

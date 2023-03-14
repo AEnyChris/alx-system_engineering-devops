@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -i [![:digit:]]* /etc/ssh/sshd_config

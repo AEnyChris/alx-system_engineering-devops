@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Connecting to a remote server using a specified identity file
+
+ssh -i ~/.ssh/school ubuntu@52.91.134.216

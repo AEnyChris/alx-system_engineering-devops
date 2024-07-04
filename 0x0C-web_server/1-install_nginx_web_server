@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# install nginx and configure to display Hello World!
+
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo -e "Hello World!" |sudo tee /var/www/html/index.html
+service nginx restart
+

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# install nginx and configure to display Hello World!
+
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo -e "Hello World!" |sudo tee /var/www/html/index.html
+sudo sed -i '/server_name _/a\        rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+service nginx restart
+

@@ -31,5 +31,5 @@ file_line {'redirect_conf':
 exec {'start_nginx':
     command  => 'sudo service nginx start',
     provider => shell,
-    path     => ['/bin'/, '/usr/bin', '/usr/sbin'],
+    path     => ['/bin', '/usr/bin', '/usr/sbin'],
 }

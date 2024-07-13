@@ -17,7 +17,6 @@ file {'default_reponse':
     ensure  => 'present',
     path    => '/var/www/html/index.html',
     content => 'Hello World!',
-    require => Class['nginx']
 }
 
 # 301 redirection configuration

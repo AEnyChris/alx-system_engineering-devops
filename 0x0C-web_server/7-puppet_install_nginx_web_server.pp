@@ -8,9 +8,8 @@ exec { 'init_commands':
 }
 
 # install nginx
-class{'nginx':
-    manage_repo    => true,
-    package_source => 'nginx-mainline'
+package {'nginx':
+  ensure => 'installed'
 }
 
 # 'Hello World!' default response configuration

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# install nginx and configure for 301, 404 and custom header to display server
+
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo -e "Hello World!" |sudo tee /var/www/html/index.html
+sudo sed -i '/server_name _/a\        rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+echo -e "Ceci n'est pas une page"| sudo tee /var/www/html/error_404.html
+sudo sed -i '54i\        error_page 404 /error_404.html;' /etc/nginx/sites-available/default
+sudo sed -i "55i\        add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
+service nginx restart
+

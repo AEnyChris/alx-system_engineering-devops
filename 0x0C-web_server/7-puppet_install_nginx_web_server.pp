@@ -7,10 +7,14 @@ exec { 'init_commands':
   path     => ['/bin', '/usr/bin', '/usr/sbin'],
 }
 
-# install nginx
-package {'nginx':
-  ensure => 'installed'
+class{'nginx':
+    manage_repo    => true,
+    package_source => 'nginx-mainline'
 }
+# install nginx
+#package {'nginx':
+#  ensure => 'installed'
+#}
 
 # 'Hello World!' default response configuration
 file {'default_reponse':

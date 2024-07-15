@@ -28,14 +28,11 @@ file_line {'redirect_conf':
 }
 
 # Adding custom header to nginx
-file_line {'add_header':
-    ensure => 'present',
-    path   => '/etc/nginx/sites-available/default',
-    after  => 'root /var/www/html;',
-    line   => 'add_header X-Served-By $hostname;',
+exec { 'add header':
+  command  => 'sudo sed -i "55i\        add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default',
+  provider => shell,
+  path     => ['/bin', '/usr/bin', '/usr/sbin'],
 }
-
-
 
 # restart nginx to impliment configuration
 exec {'start_nginx':

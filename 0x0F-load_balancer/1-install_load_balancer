@@ -16,3 +16,9 @@ backend web-server
 	server web-02 54.164.181.123
 EOF
 sudo echo "ENABLE=1" | sudo tee -a /etc/default/haproxy
+
+if [ "$(pgrep -c haproxy)" -le 0 ]; then
+	sudo service haproxy start
+else
+	sudo service haproxy restart
+fi

@@ -20,18 +20,17 @@ file {'default_reponse':
 }
 
 # 301 redirection configuration
-file_line {'redirect_conf':
-    ensure => 'present',
-    path   => '/etc/nginx/sites-available/default',
-    after  => 'server_name _',
-    line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-}
 
+exec {'conf_redirect':
+    command  => 'sudo sed -i "/server_name _/a\        rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default',
+    provider => shell,
+    path     => ['/bin', '/usr/bin', '/usr/sbin'],
+}
 # Adding custom header to nginx
-exec { 'add header':
-  command  => 'sudo sed -i "55i\        add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default',
-  provider => shell,
-  path     => ['/bin', '/usr/bin', '/usr/sbin'],
+exec {'add header':
+    command  => 'sudo sed -i "55i\        add_header X-Served-By \$hostname;" /etc/nginx/sites-available/default',
+    provider => shell,
+    path     => ['/bin', '/usr/bin', '/usr/sbin'],
 }
 
 # restart nginx to impliment configuration

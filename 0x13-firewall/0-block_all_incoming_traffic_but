@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Update package list and install UFW
+sudo apt-get -y update
+sudo apt-get install -y ufw
+
+# Disable UFW
+sudo disable ufw
+
+# Set default policies
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow SSH, HTTP, and HTTPS
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+# Enable UFW
+sudo ufw enable
+
+# Check UFW status
+sudo ufw status verbose
+

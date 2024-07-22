@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script returns a dns record of domain given
+
+
+dns_lookup(){
+		DOMAIN="$1"
+		SUB_DOMAIN="$2"
+		RECORD_TYPE="$(dig "$SUB_DOMAIN"."$DOMAIN" | grep -A1 "ANSWER SECTION:" | tail -1 | awk '{ print $4 }')"
+		DESTINATION="$(dig "$SUB_DOMAIN"."$DOMAIN" | grep -A1 "ANSWER SECTION:" | tail -1 | awk '{ print $5 }')"
+
+		echo The subdomain "$SUB_DOMAIN" is a "$RECORD_TYPE" record and points to "$DESTINATION"
+}
+
+if [ "$#" == 1 ]; then
+  dns_lookup "$1" "www"
+  dns_lookup "$1" "lb-01"
+  dns_lookup "$1" "web-01"
+  dns_lookup "$1" "web-02"
+elif [ "$#" == 2 ]; then
+  dns_lookup "$1" "$2"
+fi

@@ -5,4 +5,5 @@
 sudo sed -i '/worker_processes 4;/a\user nginx;' /etc/nginx/nginx.conf
 sudo sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 pkill apache2
+sudo chmod 644 /etc/nginx/nginx.conf
 sudo -u nginx service nginx restart

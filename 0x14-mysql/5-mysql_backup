@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Create a dump of all database and archive it
+
+CURRENT_DATE=$(date +%d-%m-%Y)
+sudo mysqldump -u root -p="$1" --all-databases --master-data > backup.sql
+sudo tar -czvf $CURRENT_DATE.tar.gz backup.sql

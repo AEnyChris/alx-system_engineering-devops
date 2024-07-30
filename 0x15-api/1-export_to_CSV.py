@@ -20,10 +20,10 @@ if __name__ == "__main__":
     tasks = todo_json.json()
 
     # Parse data to get information
-    empname = user_data.get("name")
+    username = user_data.get("username")
     task_done = [task for task in tasks if task.get("completed") is True]
 
     with open(f"{user_id}.csv", 'a') as fs:
         for task in tasks:
             fs.write('"{}","{}","{}","{}"\n'.format(
-                user_id, empname, task.get("completed"), task.get("title")))
+                user_id, username, task.get("completed"), task.get("title")))

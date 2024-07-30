@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""A script that returns the todo details of a user"""
+"""
+a Python script that, using this REST API,
+for a given employee ID, returns information 
+about his/her TODO list progress.
+"""
 
 from sys import argv
 import requests

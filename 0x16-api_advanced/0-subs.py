@@ -12,9 +12,9 @@ def number_of_subscribers(subreddit):
         url = f"https://www.reddit.com/r/{subreddit}/about.json"
         headers = {"User-Agent": "MyApp/1.0"}
         payload = requests.get(url, allow_redirects=False, headers=headers)
-        if payload.status_code != 200:
-            return 0
-        subs = payload.json()['data']['subscribers']
-        return subs
+        if payload.status_code == 200:
+            subs = payload.json()['data']['subscribers']
+            return subs
+        return 0
     except Exception as e:
         return 0

@@ -9,7 +9,9 @@ def recurse(subreddit, hot_list=[], after=None):
 
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {"User-Agent": "My-User-Agent"}
-    payload = requests.get(url, allow_redirects=False, headers=headers, params={"after":after})
+    payload = requests.get(url, allow_redirects=False,
+                           headers=headers,
+                           params={"after": after})
     if payload.status_code == 200:
         for item in payload.json()['data']['children']:
             hot_list.append(item['data']['title'])

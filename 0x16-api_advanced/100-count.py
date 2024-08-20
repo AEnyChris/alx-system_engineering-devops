@@ -22,6 +22,7 @@ def recurse(subreddit, hot_list=[], after=None):
     else:
         return None
 
+
 def count(split_title, word):
     count = 0
     for title in split_title:
@@ -29,6 +30,7 @@ def count(split_title, word):
             if token == word:
                 count += 1
     return count
+
 
 def count_words(subreddit, word_list):
     word_list = [word.lower() for word in word_list]
